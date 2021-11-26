@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/css/stylesheet.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="#">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://raw.githubusercontent.com/JohnBlazek/codepen-resources/master/3d-carousel/js/libs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+
+
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://github.com/mrdoob/three.js/blob/master/examples/jsm/loaders/GLTFLoader.js"></script>
+    <script src="https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js"></script>
+
+    <!-- <h1>3D Carousel Using TweenMax.js & jQuery</h1> -->
+    <!-- <h3>A pen by <a href="https://www.twitter.com/johnblazek" target="_blank">@johnblazek</a></h3> -->
+    <div id="fps">Framerate: 0/63 FPS</div>
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+    <script src="" async defer></script>
+    <div id="contentContainer" class="trans3d">
+        <section id="carouselContainer" class="trans3d">
+
+            <div id="item1" class="carouselItem trans3d">
+                <a href="https://agile-atoll-58762.herokuapp.com/">
+
+                    <script>
+                        let scene, camera, renderer;
+
+                        function init2() {
+
+                            scene = new THREE.Scene();
+                            scene.background = new THREE.color(red);
+
+                            camera = new THREE.PerspectiveCamera(40, widow.innerWidth / window.innerHeight, 1, 5000);
+                            camera.rotation.y = 45 / 180 * Math.PI;
+                            camera.position.x = 800;
+                            camera.position.y = 100;
+                            camera.position.z = 1000;
+
+
+                            hlight = new THREE.AmbientLight(0x404040, 100);
+                            scene.add(hlight);
+
+                            directionalLight = new THREE.DirectionalLight(0xffffff, 100);
+                            directonalLight.position.set(0, 1, 0);
+                            directionalLight.castShadow = true;
+                            scene.add(directionalLight);
+
+                            light = new THREE.PointLight(0xc4c4c4, 10);
+                            light.position.set(0, 300, 500);
+                            scene.add(light);
+
+                            light2 = new THREE.PointLight(0xc4c4c4, 10);
+                            light2.position.set(500, 100, 0);
+                            scene.add(light);
+
+                            light3 = new THREE.PointLight(0xc4c4c4, 10);
+                            light3.position.set(0, 100, -500);
+                            scene.add(light);
+
+                            light4 = new THREE.PointLight(0xc4c4c4, 10);
+                            light4.position.set(-500, 300, 0);
+                            scene.add(light);
+
+                            renderer = new THREE.WebGLRenderer({
+                                antialias: true
+                            });
+                            renderer.setSize(widow.innerWidth, window.innerHeight);
+                            document.body.appendChild(renderer.domElement);
+
+                            let loader = new THREE.GLTFLoader();
+                            loader.load('scene.gltf', function(gltf) {
+                                car = gltf.scene.chldren[0];
+                                car.scale.set(0.1, 0.1, 0.1);
+                                scene.add(gltf.scene);
+                                renderer.render(scene, camera);
+                            });
+
+                        }
+                        init2();
+                    </script>
+
+                </a>
+
+            </div>
+            <figure id="item2" class="carouselItem trans3d">
+                <a href="https://hidden-brook-93842.herokuapp.com/">
+                    <div class="carouselItemInner trans3d">2</div>
+                </a>
+            </figure>
+            <figure id="item3" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">3</div>
+            </figure>
+            <figure id="item4" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">4</div>
+            </figure>
+            <figure id="item5" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">5</div>
+            </figure>
+            <figure id="item6" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">6</div>
+            </figure>
+            <figure id="item7" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">7</div>
+            </figure>
+            <figure id="item8" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">8</div>
+            </figure>
+            <figure id="item9" class="carouselItem trans3d">
+                <div class="carouselItemInner trans3d">9</div>
+            </figure>
+            <figure id="item10" class="carouselItem trans3d">
+                <a href="https://fierce-bayou-48492.herokuapp.com/">
+                    <div class="carouselItemInner trans3d">10</div>
+                </a>
+            </figure>
+            <figure id="item11" class="carouselItem trans3d">
+                <a href="https://bazaar-backend.herokuapp.com/">
+                    <div class="carouselItemInner trans3d">11</div>
+                </a>
+            </figure>
+            <figure id="item12" class="carouselItem trans3d">
+                <a href="https://hillaryblavin.github.io/Flick-Pick/">
+                    <div class="carouselItemInner trans3d">12</div>
+                </a>
+            </figure>
+            <figure id="item13" class="carouselItem trans3d">
+                <a href="https://calm-lake-16821.herokuapp.com/">
+                    <div class="carouselItemInner trans3d">13</div>
+                </a>
+            </figure>
+        </section>
+    </div>
+
+    </script>
+</body>
+
+</html>
